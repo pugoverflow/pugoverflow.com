@@ -1,6 +1,10 @@
+import { Routes, Route } from "react-router-dom"
 import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
 import { Footer } from "@/components/footer"
+import { Home } from "@/pages/home"
+import { About } from "@/pages/about"
+import { Articles } from "@/pages/articles"
+import { Uses } from "@/pages/uses"
 import { motion } from "motion/react"
 
 export function App() {
@@ -23,7 +27,12 @@ export function App() {
 
         <main className="flex-1">
           <section className="mx-auto w-full max-w-7xl px-6 py-8 md:px-8 lg:px-12">
-            <Hero />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/uses" element={<Uses />} />
+            </Routes>
           </section>
         </main>
 

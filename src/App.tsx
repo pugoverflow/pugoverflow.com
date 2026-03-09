@@ -1,17 +1,21 @@
 import { Header } from "@/components/header"
+import { Hero } from "@/components/hero"
 import { Footer } from "@/components/footer"
 
 export function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <Header />
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="relative flex min-h-screen flex-col">
+        <Header />
 
-      <main className="flex-1 p-6">
-        <h2 className="text-2xl font-semibold mb-4">Amanda Cashin</h2>
-        <p className="text-muted-foreground">Front End Developer and Pug Mum</p>
-      </main>
+        <main className="flex-1">
+          <section className="mx-auto w-full max-w-7xl px-6 py-8 md:px-8 lg:px-12">
+            <Hero />
+          </section>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -13,9 +13,9 @@ const setup = {
       note: "My main machine for development, writing, and day-to-day work.",
     },
     {
-      name: "External monitor",
+      name: "Ultrawide monitor",
       note:
-        "A larger display for coding, reading documentation, and keeping multiple windows visible.",
+        "An ultrawide display that lets me keep code, documentation, and the browser open side by side — much easier than constantly switching tabs.",
     },
     {
       name: "Magic Mouse",
@@ -24,7 +24,7 @@ const setup = {
     {
       name: "Dog treats (for Minnie)",
       note:
-        "A permanent part of the setup and useful for morale, bribery, and the occasional interruption to remind me to take a break.",
+        "An essential part of the desk setup. Minnie is my workday companion. Treats help with morale, negotiations, and timely walk reminders.",
     },
   ],
   neurodiversity: [
@@ -34,9 +34,9 @@ const setup = {
         "A sit-stand desk that lets me change posture throughout the day. Movement helps me stay focused and reduce mental fatigue.",
     },
     {
-      name: "ADHD chair",
+      name: "PiperSong meditation chair",
       note:
-        "A chair designed to support movement and posture. It helps with restlessness and makes longer work sessions more comfortable.",
+        "A cross-legged meditation chair that lets me sit in different positions throughout the day. It helps with ADHD restlessness — and bonus: it makes room for Minnie to curl up on my lap during deep work.",
     },
     {
       name: "Echo Dot",
@@ -51,7 +51,7 @@ const setup = {
     {
       name: "Goblin Tools",
       note:
-        "A practical tool for breaking overwhelming tasks into smaller, more manageable steps.",
+        "A lifesaver for breaking overwhelming tasks into smaller, more manageable steps.",
     },
   ],
 }
@@ -99,7 +99,7 @@ export function Uses() {
           <SectionHeader
             eyebrow="Uses"
             title="My desk setup"
-            description="The tools I use day-to-day for development, writing, focus, and staying organised — including a few that help me manage ADHD."
+            description="The tools that keep me productive, focused, and (mostly) organized — including a few that help me manage ADHD."
           />
         </motion.div>
 

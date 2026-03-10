@@ -18,19 +18,19 @@ const featureCards = [
   {
     title: "Engineering foundations",
     description:
-      "I focus on the work that makes product development smoother: reusable components, sensible APIs, clear state boundaries, and code that stays maintainable.",
+      "I focus on the work that makes product development smoother: reusable components, APIs that don't fight you, clear state boundaries, and code that stays maintainable.",
     icon: <Code className="h-5 w-5" weight="bold" />,
   },
   {
     title: "Design system thinking",
     description:
-      "I turn visual consistency into practical systems with documentation, patterns, and conventions that designers and engineers can rely on.",
+      "I turn visual consistency into systems people actually use — with documentation, patterns, and conventions that designers and engineers can rely on.",
     icon: <Palette className="h-5 w-5" weight="bold" />,
   },
   {
     title: "User experience details",
     description:
-      "Accessibility, clarity, and polish matter. Good interfaces feel straightforward because the underlying decisions have been made carefully.",
+      "Accessibility, clarity, and polish matter. I focus on semantic markup, keyboard navigation, and interaction patterns that work reliably across devices and assistive tech.",
     icon: <Sparkle className="h-5 w-5" weight="bold" />,
   },
 ]
@@ -49,19 +49,23 @@ export function About() {
           <SectionHeader
             eyebrow="About"
             title="I build front ends that scale without becoming harder to work on"
-            description="After nearly eight years in front-end development, I’ve focused my work on scalable design systems, accessible interfaces, and UI architecture that helps teams deliver more reliably."
+            description="After nearly eight years in front-end development, I’ve focused my work on scalable design systems, accessible interfaces, and UI architecture that helps teams ship with less stress and fewer surprises."
           />
         </motion.div>
 
-        <motion.div className="grid gap-6 md:grid-cols-3" variants={fadeUp}>
+        <motion.div
+          className="grid gap-6 md:grid-cols-3"
+          variants={staggerRelaxed}
+        >
           {featureCards.map(({ title, description, icon }) => (
-            <FeatureCard
-              key={title}
-              icon={icon}
-              title={title}
-              description={description}
-              titleAs="h2"
-            />
+            <motion.div key={title} variants={fadeUp}>
+              <FeatureCard
+                icon={icon}
+                title={title}
+                description={description}
+                titleAs="h2"
+              />
+            </motion.div>
           ))}
         </motion.div>
 
@@ -74,9 +78,8 @@ export function About() {
                 </h2>
 
                 <p className="leading-7 text-muted-foreground">
-                  I do my best work in teams that care about long-term product
-                  quality, collaboration, and systems other people can actually
-                  use. I like creating structure where there’s friction —
+                  I thrive in teams that care about long-term product quality,
+                  collaboration, and systems people actually enjoy using. I like creating structure where there’s friction —
                   standardising components, reducing duplication, improving
                   documentation, and making accessibility part of the default
                   approach.

@@ -13,42 +13,59 @@ export function Header() {
       initial="hidden"
       animate="visible"
       variants={fadeUp}
-      className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 backdrop-blur-xl"
+      className="sticky top-0 z-50 w-full overflow-hidden border-b border-border/70 bg-background/80 backdrop-blur-xl"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between md:px-8 lg:px-10 xl:px-12">
         <div className="flex items-center justify-between gap-4">
-          <Button
-            asChild
-            variant="ghost"
-            className="h-auto rounded-md px-0 py-0 hover:bg-transparent"
+          <motion.div
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
           >
-            <Link to="/" className="group flex items-center gap-3 rounded-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-card shadow-sm">
-                <PawPrint className="h-5 w-5 text-foreground" weight="duotone" />
-              </div>
+            <Button
+              asChild
+              variant="ghost"
+              className="h-auto rounded-md px-0 py-0 hover:bg-transparent"
+            >
+              <Link to="/" className="group flex items-center gap-3 rounded-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-card shadow-sm">
+                  <PawPrint
+                    className="h-5 w-5 text-foreground"
+                    weight="duotone"
+                  />
+                </div>
 
-              <div className="flex flex-col text-left leading-none">
-                <span className="font-semibold tracking-tight text-foreground">
-                  Pug Overflow
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  Front-end engineering by Amanda Cashin
-                </span>
-              </div>
-            </Link>
-          </Button>
+                <div className="flex flex-col text-left leading-none">
+                  <span className="font-semibold tracking-tight text-foreground">
+                    Pug Overflow
+                  </span>
+
+                  <span className="text-xs text-muted-foreground">
+                    Front-end engineering by Amanda and Minnie
+                  </span>
+
+                  <span className="mt-1 h-px w-full rounded-full bg-gradient-to-r from-foreground/60 via-foreground/20 to-transparent" />
+                </div>
+              </Link>
+            </Button>
+          </motion.div>
 
           <div className="md:hidden">
             <ThemeToggle />
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-4">
+        <motion.div
+          className="flex flex-col gap-4 md:flex-row md:items-center md:gap-4"
+          initial={{ opacity: 0, x: 12 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.08, duration: 0.35, ease: "easeOut" }}
+        >
           <Nav />
           <div className="hidden md:block">
             <ThemeToggle />
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.header>
   )

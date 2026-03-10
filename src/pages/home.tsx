@@ -7,26 +7,18 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fadeUp, scaleIn, stagger } from "@/lib/motion"
 
-const badges = [
+const topBadges = [
   { label: "Senior Front-End Engineer" },
-  { label: "Design Systems" },
-  { label: "Woman in Tech", variant: "secondary" as const },
-  { label: "Neurodivergent", variant: "secondary" as const },
+  { label: "Woman in Tech" },
   { label: "Pug Mum", variant: "secondary" as const },
 ]
 
 const skills = [
-  "HTML",
-  "CSS",
   "React",
   "TypeScript",
   "Storybook",
-  "Vite",
   "Tailwind",
-  "Styled Components",
-  "Cypress",
   "Playwright",
-  "Git",
   "Accessibility",
 ]
 
@@ -45,42 +37,73 @@ const links = [
 
 export function Home() {
   return (
-    <section className="w-full py-10 md:py-16 lg:py-20">
+    <section className="w-full py-12 md:py-16 lg:py-24">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={fadeUp}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
       >
-        <Card className="mx-auto max-w-6xl overflow-hidden rounded-2xl border-border/70 bg-card/95 shadow-xl shadow-black/5">
-          <CardContent className="relative grid items-center gap-10 p-6 md:grid-cols-2 md:p-10 lg:p-14">
+        <Card className="mx-auto max-w-6xl overflow-hidden rounded-3xl border-border/70 bg-card/95 shadow-xl shadow-black/5">
+          <CardContent className="relative grid items-center gap-12 p-6 md:grid-cols-[1.15fr_.85fr] md:p-10 lg:p-14">
+
+            {/* Background glow */}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--muted))_0%,transparent_38%)]" />
 
+            {/* LEFT CONTENT */}
             <motion.div
-              className="order-2 space-y-7 md:order-1"
+              className="order-2 max-w-2xl space-y-8 md:order-1"
               initial="hidden"
               animate="visible"
               variants={stagger}
             >
-              <motion.div className="space-y-4" variants={fadeUp}>
-                <div className="flex flex-wrap gap-2">
-                  {badges.map(({ label, variant }) => (
-                    <Badge
-                      key={label}
-                      variant={variant}
-                      className="rounded-md px-4 py-1"
-                    >
-                      {label}
-                    </Badge>
-                  ))}
-                </div>
+              <motion.div className="space-y-5" variants={fadeUp}>
 
+                {/* Top badges */}
+                <motion.div className="flex flex-wrap gap-2">
+                  {topBadges.map(({ label, variant }, index) => (
+                    <motion.div
+                      key={label}
+                      initial={{ opacity: 0, y: 10, scale: 0.92 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{
+                        delay: 0.04 + index * 0.04,
+                        duration: 0.24,
+                        ease: "easeOut",
+                      }}
+                    >
+                      <Badge
+                        variant={variant}
+                        className="rounded-md px-3 py-1"
+                      >
+                        {label}
+                      </Badge>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                {/* Heading */}
                 <div className="space-y-4">
                   <motion.h1
-                    variants={fadeUp}
                     className="max-w-xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl"
+                    variants={fadeUp}
                   >
-                    Amanda Cashin
+                    <motion.span
+                      className="inline-block"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.08, duration: 0.35 }}
+                    >
+                      Amanda
+                    </motion.span>{" "}
+                    <motion.span
+                      className="inline-block"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.16, duration: 0.35 }}
+                    >
+                      Cashin
+                    </motion.span>
                   </motion.h1>
 
                   <motion.p
@@ -88,51 +111,65 @@ export function Home() {
                     className="max-w-xl text-base leading-7 text-muted-foreground md:text-lg"
                   >
                     I build front-end systems that help teams ship faster,
-                    stay consistent, and scale without rebuilding the UI every
-                    few months.
+                    stay consistent, and scale with confidence. My work focuses
+                    on design systems, accessibility, and UI architecture —
+                    the foundations that make products easier to build,
+                    maintain, and evolve.
                   </motion.p>
-
-                  <motion.p
-                    variants={fadeUp}
-                    className="max-w-xl text-base leading-7 text-muted-foreground md:text-lg"
-                  >
-                    My work sits across engineering, design systems,
-                    accessibility, and UI architecture — strengthening the
-                    foundations that make product work easier to deliver and
-                    maintain.
-                  </motion.p>
-
-                  <motion.div
-                    variants={fadeUp}
-                    whileHover={{ y: -2, scale: 1.01 }}
-                    transition={{ duration: 0.18, ease: "easeOut" }}
-                    className="inline-flex flex-wrap items-center gap-2 rounded-lg border border-border/70 bg-background/80 px-4 py-2 text-sm leading-6 text-muted-foreground shadow-sm backdrop-blur-sm"
-                  >
-                    <span>
-                      Usually working with Minnie nearby — part office companion,
-                      part walk break scheduler, and consistently more interested
-                      in snacks than stand-ups.
-                    </span>
-                    <Dog className="h-5 w-5" weight="fill" />
-                  </motion.div>
                 </div>
               </motion.div>
 
-              <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
-                {links.map(({ label, href, icon: Icon }) => (
+              {/* Minnie card */}
+              <motion.div
+                className="relative overflow-hidden rounded-xl border border-border/50 bg-muted/50 p-4"
+                variants={fadeUp}
+              >
+                <div className="relative flex items-start gap-3">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-background/80">
+                    <Dog
+                      className="h-4 w-4 text-muted-foreground"
+                      weight="fill"
+                    />
+                  </div>
+
+                  <div className="space-y-0.5">
+                    <p className="text-sm font-medium">Meet Minnie</p>
+                    <p className="text-xs leading-relaxed text-muted-foreground">
+                      I work hard so she can have nice things — my pug, office
+                      companion, and morale booster. She’s currently
+                      training as a support dog to help with neurodivergent
+                      needs.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Links */}
+              <motion.div
+                className="flex flex-wrap gap-3"
+                variants={fadeUp}
+              >
+                {links.map(({ label, href, icon: Icon }, index) => (
                   <motion.div
                     key={label}
-                    whileHover={{ y: -2, scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      delay: 0.16 + index * 0.05,
+                      duration: 0.24,
+                    }}
                   >
                     <Button
                       asChild
-                      variant="outline"
+                      variant={index === 0 ? "default" : "outline"}
                       size="lg"
                       className="gap-2 rounded-md shadow-sm"
                     >
-                      <a href={href} target="_blank" rel="noreferrer">
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
                         <Icon className="h-5 w-5" weight="fill" />
                         {label}
                       </a>
@@ -141,53 +178,57 @@ export function Home() {
                 ))}
               </motion.div>
 
-              <motion.div className="flex flex-wrap gap-2 pt-1" variants={fadeUp}>
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.96, y: 8 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{
-                      delay: 0.16 + index * 0.025,
-                      duration: 0.22,
-                      ease: "easeOut",
-                    }}
-                  >
-                    <Badge
-                      variant="outline"
-                      className="rounded-md border-border/70 bg-background/80 px-3 py-1 shadow-sm"
+              {/* Skills */}
+              <motion.div className="space-y-3" variants={fadeUp}>
+                <p className="text-sm font-medium text-muted-foreground">
+                  Core skills
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{
+                        delay: 0.12 + index * 0.04,
+                        duration: 0.24,
+                      }}
                     >
-                      {skill}
-                    </Badge>
-                  </motion.div>
-                ))}
+                      <Badge
+                        variant="outline"
+                        className="rounded-md border-border/70 bg-background/70 px-3 py-1"
+                      >
+                        {skill}
+                      </Badge>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </motion.div>
 
+            {/* RIGHT IMAGE */}
             <motion.div
               className="order-1 flex justify-center md:order-2 md:justify-end"
               initial="hidden"
               animate="visible"
               variants={scaleIn}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.16 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
             >
-              <motion.div
-                className="relative"
-                whileHover={{ y: -4, scale: 1.01, rotate: -0.5 }}
-                transition={{ type: "spring", stiffness: 220, damping: 20 }}
-              >
-                <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-border/40 bg-muted/70" />
+              <div className="relative">
+                <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl border border-border/40 bg-muted/70" />
 
                 <motion.img
                   src={profile}
-                  alt="Amanda and Minnie"
-                  className="relative h-72 w-72 rounded-2xl border border-border/70 bg-background object-cover shadow-xl shadow-black/10 md:h-80 md:w-80 lg:h-96 lg:w-96"
-                  initial={{ filter: "blur(10px)" }}
-                  animate={{ filter: "blur(0px)" }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
+                  alt="Amanda Cashin with Minnie, her pug"
+                  className="relative h-72 w-72 rounded-3xl border border-border/70 bg-background object-cover shadow-xl shadow-black/10 md:h-80 md:w-80 lg:h-[26rem] lg:w-[26rem]"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.12, duration: 0.35 }}
                 />
-              </motion.div>
+              </div>
             </motion.div>
+
           </CardContent>
         </Card>
       </motion.div>

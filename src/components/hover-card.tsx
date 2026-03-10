@@ -1,5 +1,4 @@
 import type { ReactNode } from "react"
-import { motion } from "motion/react"
 
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -15,13 +14,10 @@ export function HoverCard({
   contentClassName,
 }: HoverCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -3, scale: 1.01 }}
-      transition={{ duration: 0.18, ease: "easeOut" }}
-    >
+    <div className="group">
       <Card
         className={[
-          "h-full rounded-xl border-border/70 bg-card/95 shadow-sm",
+          "h-full rounded-xl border-border/70 bg-card/95 shadow-sm transition-shadow duration-300 group-hover:shadow-md",
           className,
         ]
           .filter(Boolean)
@@ -31,6 +27,6 @@ export function HoverCard({
           {children}
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   )
 }

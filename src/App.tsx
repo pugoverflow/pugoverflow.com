@@ -1,14 +1,77 @@
-import { Route, Routes } from "react-router-dom"
-import { motion } from "motion/react"
+import { Route, Routes, useLocation } from "react-router-dom"
+import { AnimatePresence, motion } from "motion/react"
 
 import { Cursor } from "@/components/effects/cursor"
 import { Container } from "@/components/layout/container"
 import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
+import { pageTransition } from "@/lib/motion"
 import { About } from "@/pages/about"
 import { Articles } from "@/pages/articles"
 import { Home } from "@/pages/home"
 import { Uses } from "@/pages/uses"
+
+function AnimatedRoutes() {
+  const location = useLocation()
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <motion.div
+              variants={pageTransition}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <Home />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <motion.div
+              variants={pageTransition}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <About />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/articles"
+          element={
+            <motion.div
+              variants={pageTransition}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <Articles />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/uses"
+          element={
+            <motion.div
+              variants={pageTransition}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <Uses />
+            </motion.div>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  )
+}
 
 export function App() {
   return (
@@ -39,12 +102,7 @@ export function App() {
 
         <main className="flex-1">
           <Container className="relative">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/articles" element={<Articles />} />
-              <Route path="/uses" element={<Uses />} />
-            </Routes>
+            <AnimatedRoutes />
           </Container>
         </main>
 

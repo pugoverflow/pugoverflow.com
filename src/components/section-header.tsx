@@ -1,4 +1,7 @@
+import { motion } from "motion/react"
+
 import { Badge } from "@/components/ui/badge"
+import { staggerTight, slideUpFade } from "@/lib/motion"
 
 type SectionHeaderProps = {
   eyebrow: string
@@ -12,21 +15,35 @@ export function SectionHeader({
   description,
 }: SectionHeaderProps) {
   return (
-    <div className="max-w-3xl space-y-3">
-      <Badge
-        variant="secondary"
-        className="rounded-md px-3 py-1 text-xs font-medium shadow-sm"
+    <motion.div
+      className="max-w-3xl space-y-3"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      variants={staggerTight}
+    >
+      <motion.div variants={slideUpFade}>
+        <Badge
+          variant="secondary"
+          className="rounded-md px-3 py-1 text-xs font-medium shadow-sm"
+        >
+          {eyebrow}
+        </Badge>
+      </motion.div>
+
+      <motion.h1
+        variants={slideUpFade}
+        className="text-4xl font-semibold tracking-tight md:text-5xl"
       >
-        {eyebrow}
-      </Badge>
-
-      <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
         {title}
-      </h1>
+      </motion.h1>
 
-      <p className="text-base leading-7 text-muted-foreground md:text-lg">
+      <motion.p
+        variants={slideUpFade}
+        className="text-base leading-7 text-muted-foreground md:text-lg"
+      >
         {description}
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   )
 }

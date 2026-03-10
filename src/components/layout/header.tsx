@@ -1,27 +1,15 @@
 import { PawPrint } from "@phosphor-icons/react"
-import { motion } from "motion/react"
 import { Link } from "react-router-dom"
 
 import { Nav } from "@/components/nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { fadeUp } from "@/lib/motion"
 
 export function Header() {
   return (
-    <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={fadeUp}
-      className="sticky top-0 z-50 w-full overflow-hidden border-b border-border/70 bg-background/80 backdrop-blur-xl"
-    >
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between md:px-8 lg:px-10 xl:px-12">
         <div className="flex items-center justify-between gap-4">
-          <motion.div
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-          >
             <Button
               asChild
               variant="ghost"
@@ -43,30 +31,22 @@ export function Header() {
                   <span className="text-xs text-muted-foreground">
                     Front-end engineering by Amanda and Minnie
                   </span>
-
-                  <span className="mt-1 h-px w-full rounded-full bg-gradient-to-r from-foreground/60 via-foreground/20 to-transparent" />
                 </div>
               </Link>
             </Button>
-          </motion.div>
 
           <div className="md:hidden">
             <ThemeToggle />
           </div>
         </div>
 
-        <motion.div
-          className="flex flex-col gap-4 md:flex-row md:items-center md:gap-4"
-          initial={{ opacity: 0, x: 12 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.08, duration: 0.35, ease: "easeOut" }}
-        >
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-4">
           <Nav />
           <div className="hidden md:block">
             <ThemeToggle />
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.header>
+    </header>
   )
 }

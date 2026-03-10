@@ -99,7 +99,7 @@ export function Uses() {
           <SectionHeader
             eyebrow="Uses"
             title="My desk setup"
-            description="The tools that keep me productive, focused, and (mostly) organized — including a few that help me manage ADHD."
+            description="The tools that keep me productive, focused, and (mostly) organised — including a few that help me manage ADHD."
           />
         </motion.div>
 

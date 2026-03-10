@@ -24,12 +24,6 @@ export function Articles() {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.28, ease: "easeOut" }}
-          >
           <Card className="rounded-2xl border-dashed border-border/70 bg-muted/25 shadow-none transition-shadow duration-300 hover:shadow-sm">
             <CardContent className="flex flex-col gap-4 p-8 md:flex-row md:items-center md:justify-between">
               <div className="space-y-2">
@@ -47,7 +41,6 @@ export function Articles() {
               </Badge>
             </CardContent>
           </Card>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>

@@ -96,7 +96,7 @@ export function About() {
                   I’m also neurodivergent, which shapes how I approach systems
                   and problem solving. I tend to notice inconsistencies, edge
                   cases, and unnecessary complexity quickly, which naturally
-                  pulls me toward improving design systems, accessibility, and
+                  pulls me towards improving design systems, accessibility, and
                   maintainable UI architecture.
                 </p>
               </div>
@@ -107,17 +107,13 @@ export function About() {
                 </h3>
 
                 <div className="space-y-3">
-                  {focusAreas.map((item, index) => (
+                  {focusAreas.map((item) => (
                     <motion.div
                       key={item}
-                      initial={{ opacity: 0, x: 10, filter: "blur(4px)" }}
-                      whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                      viewport={{ once: true, margin: "-60px" }}
-                      transition={{
-                        delay: 0.06 * index,
-                        duration: 0.28,
-                        ease: "easeOut",
-                      }}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: "-40px" }}
+                      variants={fadeUp}
                       className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/70 p-4 shadow-sm"
                     >
                       <CheckCircle

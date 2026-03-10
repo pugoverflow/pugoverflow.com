@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 
 import { Badge } from "@/components/ui/badge"
-import { staggerTight, slideUpFade } from "@/lib/motion"
+import { scrollReveal, staggerTight } from "@/lib/motion"
 
 type SectionHeaderProps = {
   eyebrow: string
@@ -22,7 +22,7 @@ export function SectionHeader({
       viewport={{ once: true, margin: "-40px" }}
       variants={staggerTight}
     >
-      <motion.div variants={slideUpFade}>
+      <motion.div variants={scrollReveal}>
         <Badge
           variant="secondary"
           className="rounded-md px-3 py-1 text-xs font-medium shadow-sm"
@@ -32,14 +32,14 @@ export function SectionHeader({
       </motion.div>
 
       <motion.h1
-        variants={slideUpFade}
+        variants={scrollReveal}
         className="text-4xl font-semibold tracking-tight md:text-5xl"
       >
         {title}
       </motion.h1>
 
       <motion.p
-        variants={slideUpFade}
+        variants={scrollReveal}
         className="text-base leading-7 text-muted-foreground md:text-lg"
       >
         {description}

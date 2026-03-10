@@ -75,28 +75,12 @@ function AnimatedRoutes() {
 
 export function App() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="min-h-screen bg-background text-foreground"
-    >
+    <div className="min-h-screen bg-background text-foreground">
       <Cursor />
 
       <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 0.7, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_hsl(var(--muted))_0%,_transparent_52%)]"
-        />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15, duration: 0.8 }}
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 bg-[linear-gradient(180deg,hsl(var(--background))_0%,transparent_100%)]"
-        />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_hsl(var(--muted))_0%,_transparent_52%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 bg-[linear-gradient(180deg,hsl(var(--background))_0%,transparent_100%)]" />
 
         <Header />
 
@@ -108,7 +92,7 @@ export function App() {
 
         <Footer />
       </div>
-    </motion.div>
+    </div>
   )
 }
 

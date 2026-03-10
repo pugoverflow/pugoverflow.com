@@ -7,11 +7,10 @@ import { SectionHeader } from "@/components/section-header"
 import { fadeUp, stagger } from "@/lib/motion"
 
 const setup = {
-  standard: [
+  desk: [
     {
       name: 'MacBook Pro 14"',
-      note:
-        "My main machine for development, writing, and general day-to-day work.",
+      note: "My main machine for development, writing, and day-to-day work.",
     },
     {
       name: "External monitor",
@@ -19,36 +18,40 @@ const setup = {
         "A larger display for coding, reading documentation, and keeping multiple windows visible.",
     },
     {
-      name: "Mouse",
+      name: "Magic Mouse",
+      note: "Simple and reliable for everyday navigation and desk work.",
+    },
+    {
+      name: "Dog treats (for Minnie)",
       note:
-        "Simple and reliable for everyday navigation and general desk work.",
+        "A permanent part of the setup and useful for morale, bribery, and the occasional interruption to remind me to take a break.",
     },
   ],
   neurodiversity: [
     {
       name: "Standing desk",
       note:
-        "A sit-stand desk that lets me change posture throughout the day. Movement helps me stay focused and avoid mental fatigue.",
+        "A sit-stand desk that lets me change posture throughout the day. Movement helps me stay focused and reduce mental fatigue.",
     },
     {
       name: "ADHD chair",
       note:
-        "A chair designed to support movement and posture. It helps with restlessness and makes long work sessions more comfortable.",
+        "A chair designed to support movement and posture. It helps with restlessness and makes longer work sessions more comfortable.",
     },
     {
       name: "Echo Dot",
       note:
-        "Helpful for timers, reminders, routines, and reducing the number of things I need to hold in my head.",
+        "Useful for timers, reminders, routines, and reducing the number of things I need to hold in my head.",
     },
     {
       name: "reMarkable tablet",
       note:
-        "Great for brain-dumping, handwritten notes, and getting thoughts out without the distraction of extra tabs or notifications.",
+        "Helpful for brain-dumping, handwritten notes, and getting thoughts out without the distraction of extra tabs or notifications.",
     },
     {
       name: "Goblin Tools",
       note:
-        "Helps break overwhelming tasks into smaller, more manageable steps.",
+        "A practical tool for breaking overwhelming tasks into smaller, more manageable steps.",
     },
   ],
 }
@@ -57,7 +60,10 @@ type GearSectionProps = {
   icon: React.ReactNode
   title: string
   description: string
-  items: Array<{ name: string; note: string }>
+  items: Array<{
+    name: string
+    note: string
+  }>
 }
 
 function GearSection({
@@ -71,12 +77,8 @@ function GearSection({
       <IconHeading icon={icon} title={title} description={description} />
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {items.map((item) => (
-          <FeatureCard
-            key={item.name}
-            title={item.name}
-            description={item.note}
-          />
+        {items.map(({ name, note }) => (
+          <FeatureCard key={name} title={name} description={note} />
         ))}
       </div>
     </motion.section>
@@ -89,22 +91,23 @@ export function Uses() {
       <motion.div
         className="mx-auto max-w-6xl space-y-12"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
         variants={stagger}
       >
         <motion.div variants={fadeUp}>
           <SectionHeader
             eyebrow="Uses"
             title="My desk setup"
-            description="The gear I use day-to-day for development, writing, focus, and staying organised — including a few tools that help me manage ADHD."
+            description="The tools I use day-to-day for development, writing, focus, and staying organised — including a few that help me manage ADHD."
           />
         </motion.div>
 
         <GearSection
           icon={<Desktop className="h-5 w-5" weight="bold" />}
-          title="Standard setup"
-          description="The core hardware I use for development and everyday work."
-          items={setup.standard}
+          title="What’s on my desk"
+          description="The core setup I work from every day."
+          items={setup.desk}
         />
 
         <GearSection

@@ -15,10 +15,13 @@ export function HoverCard({
   contentClassName,
 }: HoverCardProps) {
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+    <motion.div
+      whileHover={{ y: -3, scale: 1.01 }}
+      transition={{ duration: 0.18, ease: "easeOut" }}
+    >
       <Card
         className={[
-          "h-full rounded-[1.75rem] border-border/60 bg-card/90 shadow-sm",
+          "h-full rounded-xl border-border/70 bg-card/95 shadow-sm",
           className,
         ]
           .filter(Boolean)

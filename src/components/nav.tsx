@@ -24,9 +24,9 @@ export function Nav() {
         {navItems.map((item, index) => (
           <motion.div
             key={item.to}
-            initial={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.04 * index, duration: 0.25 }}
+            transition={{ delay: 0.04 * index, duration: 0.22 }}
           >
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
@@ -36,8 +36,8 @@ export function Nav() {
                   className={({ isActive }) =>
                     cn(
                       navigationMenuTriggerStyle(),
-                      "h-10 rounded-full border border-transparent bg-transparent px-4 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-border/60 hover:bg-card hover:text-foreground",
-                      isActive && "border-border/60 bg-card text-foreground shadow-sm"
+                      "h-10 rounded-md border border-transparent bg-transparent px-4 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-border/70 hover:bg-card hover:text-foreground",
+                      isActive && "border-border/70 bg-card text-foreground shadow-sm"
                     )
                   }
                 >

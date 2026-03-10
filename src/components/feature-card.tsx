@@ -20,7 +20,7 @@ export function FeatureCard({
   return (
     <HoverCard>
       {icon ? (
-        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-border/60 bg-muted/60 shadow-sm">
+        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border/70 bg-muted/50 shadow-sm">
           {icon}
         </div>
       ) : null}

@@ -15,7 +15,7 @@ export function SectionHeader({
     <div className="max-w-3xl space-y-3">
       <Badge
         variant="secondary"
-        className="rounded-full px-3 py-1 text-xs font-medium shadow-sm"
+        className="rounded-md px-3 py-1 text-xs font-medium shadow-sm"
       >
         {eyebrow}
       </Badge>

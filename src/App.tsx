@@ -7,7 +7,6 @@ import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
 import { pageTransition } from "@/lib/motion"
 import { About } from "@/pages/about"
-import { Articles } from "@/pages/articles"
 import { Home } from "@/pages/home"
 import { Uses } from "@/pages/uses"
 
@@ -39,19 +38,6 @@ function AnimatedRoutes() {
               exit="exit"
             >
               <About />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/articles"
-          element={
-            <motion.div
-              variants={pageTransition}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <Articles />
             </motion.div>
           }
         />

@@ -1,7 +1,7 @@
 import { Dog, GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
 import { motion } from "motion/react"
 
-import profile from "@/assets/profile.png"
+import logo from "@/assets/logo.png"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -184,9 +184,9 @@ export function Home() {
               <div className="relative">
                 <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl border border-border/40 bg-muted/70" />
                 <img
-                  src={profile}
-                  alt="Amanda Cashin with Minnie, her pug"
-                  className="relative h-72 w-72 rounded-3xl border border-border/70 bg-background object-cover shadow-xl shadow-black/10 md:h-80 md:w-80 lg:h-[26rem] lg:w-[26rem]"
+                  src={logo}
+                  alt="Minnie the pug"
+                   className="relative h-72 w-72 rounded-3xl border border-border/70 bg-background object-contain p-4 shadow-xl shadow-black/10 md:h-80 md:w-80 lg:h-[26rem] lg:w-[26rem]"
                 />
               </div>
             </motion.div>

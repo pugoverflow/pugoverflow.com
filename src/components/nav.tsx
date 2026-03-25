@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils"
 const navItems = [
   { to: "/", label: "Home", end: true },
   { to: "/about", label: "About" },
-  { to: "/articles", label: "Articles" },
   { to: "/uses", label: "Uses" },
 ]
 

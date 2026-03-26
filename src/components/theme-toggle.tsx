@@ -11,13 +11,13 @@ export function ThemeToggle() {
   const Icon = isDark ? Moon : Sun
 
   return (
-    <div className="flex items-center gap-2 rounded-lg border border-border/70 bg-card/85 px-3 py-2 shadow-sm backdrop-blur-md">
+    <div className="flex items-center gap-2.5 rounded-xl border border-border/70 bg-card/80 px-3 py-1.5 shadow-sm backdrop-blur-md">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={isDark ? "moon" : "sun"}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.92 }}
           transition={{ duration: 0.15 }}
           className="flex items-center justify-center"
         >

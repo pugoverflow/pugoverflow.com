@@ -12,6 +12,7 @@ import { Uses } from "@/pages/uses"
 
 function AnimatedRoutes() {
   const location = useLocation()
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
               initial="initial"
               animate="animate"
               exit="exit"
+              className="will-change-[opacity,transform]"
             >
               <Home />
             </motion.div>
@@ -36,6 +38,7 @@ function AnimatedRoutes() {
               initial="initial"
               animate="animate"
               exit="exit"
+              className="will-change-[opacity,transform]"
             >
               <About />
             </motion.div>
@@ -49,6 +52,7 @@ function AnimatedRoutes() {
               initial="initial"
               animate="animate"
               exit="exit"
+              className="will-change-[opacity,transform]"
             >
               <Uses />
             </motion.div>
@@ -65,12 +69,14 @@ export function App() {
       <Cursor />
 
       <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_hsl(var(--muted))_0%,_transparent_52%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.05)_0%,transparent_50%)]" />
+        <div className="pointer-events-none absolute right-0 top-0 -z-10 h-64 w-[min(32rem,90vw)] bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.06)_0%,transparent_60%)] blur-2xl" />
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 bg-[linear-gradient(180deg,hsl(var(--background))_0%,transparent_100%)]" />
+        <div className="pointer-events-none absolute right-0 top-0 -z-10 hidden h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,hsl(var(--accent)/0.18)_0%,transparent_70%)] blur-3xl md:block" />
 
         <Header />
 
-        <main className="flex-1">
+        <main className="relative flex-1">
           <Container className="relative">
             <AnimatedRoutes />
           </Container>

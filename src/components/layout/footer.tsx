@@ -1,6 +1,7 @@
-import { GithubLogo } from "@phosphor-icons/react"
+import { Code } from "@phosphor-icons/react"
 import { motion } from "motion/react"
 
+import { footerContent } from "@/content/footer"
 import { Button } from "@/components/ui/button"
 import { scrollRevealSubtle } from "@/lib/motion"
 
@@ -11,35 +12,36 @@ export function Footer() {
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
       variants={scrollRevealSubtle}
-      className="relative w-full border-t border-border/70 bg-background/85"
+      className="relative mt-12 w-full border-t border-border/70 bg-background/70 backdrop-blur-sm"
     >
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between md:px-8 lg:px-10 xl:px-12">
-        <div className="space-y-1 text-sm text-muted-foreground">
-          <p>© 2026 Amanda Cashin</p>
-          <p className="text-xs">
-            Built with React, shadcn/ui, and occasional input from Minnie the
-            pug.
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-5 px-4 py-8 sm:px-6 md:flex-row md:items-end md:justify-between md:px-8">
+
+        {/* text */}
+        <div className="space-y-2 text-sm text-muted-foreground">
+          <p className="text-sm font-medium text-foreground">
+            {footerContent.copyright}
+          </p>
+          <p className="max-w-md text-xs leading-6">
+            {footerContent.description}
           </p>
         </div>
 
-        <div>
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className="gap-2 rounded-md shadow-sm"
-          >
-            <a
-              href="https://github.com/pugoverflow/pugoverflow.com"
-              target="_blank"
-              rel="noopener noreferrer"
+        {/* links */}
+        <div className="flex flex-wrap gap-3">
+          {footerContent.links.map(({ label, href, variant }) => (
+            <Button
+              key={label}
+              asChild
+              variant={variant}
+              size="sm"
+              className="gap-2 rounded-lg px-4"
             >
-              <span className="flex items-center gap-2">
-                <GithubLogo className="h-4 w-4" weight="fill" />
-                <span>Source code</span>
-              </span>
-            </a>
-          </Button>
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <Code className="h-4 w-4" weight="bold" />
+                <span>{label}</span>
+              </a>
+            </Button>
+          ))}
         </div>
       </div>
     </motion.footer>

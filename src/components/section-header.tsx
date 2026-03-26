@@ -1,7 +1,12 @@
 import { motion } from "motion/react"
 
 import { Badge } from "@/components/ui/badge"
-import { scrollReveal, staggerTight } from "@/lib/motion"
+import {
+  sectionDescription,
+  sectionEyebrow,
+  sectionTitle,
+  staggerSectionHeader,
+} from "@/lib/motion"
 
 type SectionHeaderProps = {
   eyebrow: string
@@ -16,31 +21,31 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <motion.div
-      className="max-w-3xl space-y-3"
+      className="max-w-3xl space-y-3 md:space-y-4"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-40px" }}
-      variants={staggerTight}
+      variants={staggerSectionHeader}
     >
-      <motion.div variants={scrollReveal}>
+      <motion.div variants={sectionEyebrow}>
         <Badge
-          variant="secondary"
-          className="rounded-md px-3 py-1 text-xs font-medium shadow-sm"
+          variant="outline"
+          className="rounded-md px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]"
         >
           {eyebrow}
         </Badge>
       </motion.div>
 
       <motion.h1
-        variants={scrollReveal}
-        className="text-4xl font-semibold tracking-tight md:text-5xl"
+        variants={sectionTitle}
+        className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
       >
         {title}
       </motion.h1>
 
       <motion.p
-        variants={scrollReveal}
-        className="text-base leading-7 text-muted-foreground md:text-lg"
+        variants={sectionDescription}
+        className="max-w-2xl text-sm leading-7 text-muted-foreground md:text-[15px]"
       >
         {description}
       </motion.p>

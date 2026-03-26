@@ -1,18 +1,18 @@
 import { Bone } from "@phosphor-icons/react"
-import { AnimatePresence, motion, useMotionValue, useSpring } from "motion/react"
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useSpring,
+} from "motion/react"
 import { useEffect, useState } from "react"
 
 const trail = [
-  { stiffness: 120, damping: 18, mass: 1.2, size: 48, opacity: 1 },
-  { stiffness: 100, damping: 17, mass: 1.4, size: 44, opacity: 0.94 },
-  { stiffness: 85, damping: 16, mass: 1.6, size: 40, opacity: 0.88 },
-  { stiffness: 72, damping: 15, mass: 1.8, size: 36, opacity: 0.8 },
-  { stiffness: 60, damping: 14, mass: 2, size: 32, opacity: 0.72 },
-  { stiffness: 50, damping: 13, mass: 2.3, size: 28, opacity: 0.62 },
-  { stiffness: 42, damping: 12, mass: 2.6, size: 26, opacity: 0.54 },
-  { stiffness: 35, damping: 11, mass: 3, size: 24, opacity: 0.46 },
-  { stiffness: 30, damping: 10, mass: 3.4, size: 22, opacity: 0.38 },
-  { stiffness: 26, damping: 9, mass: 3.8, size: 20, opacity: 0.3 },
+  { stiffness: 140, damping: 20, mass: 1.1, size: 30, opacity: 0.9 },
+  { stiffness: 118, damping: 18, mass: 1.28, size: 27, opacity: 0.72 },
+  { stiffness: 96, damping: 17, mass: 1.5, size: 24, opacity: 0.56 },
+  { stiffness: 78, damping: 16, mass: 1.75, size: 21, opacity: 0.42 },
+  { stiffness: 62, damping: 15, mass: 2, size: 18, opacity: 0.3 },
 ]
 
 function TrailBone({
@@ -28,33 +28,37 @@ function TrailBone({
   opacity: number
   index: number
 }) {
+  const isLead = index === 0
+
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 hidden md:block"
-      style={{ x, y, zIndex: 90 - index }}
+      className="pointer-events-none fixed left-0 top-0 hidden xl:block"
+      style={{ x, y, zIndex: 100 - index }}
     >
       <div className="relative -translate-x-1/2 -translate-y-1/2">
         <motion.div
           animate={{
-            rotate: [0, 120, 260, 360],
-            y: [0, 6, 14, 8, 0],
-            scale: [1, 1.08, 0.94, 1],
+            rotate: [0, 4, -4, 0],
+            scale: [1, 1.012, 0.995, 1],
+            y: [0, 1, 0],
           }}
           transition={{
-            duration: 3.6 + index * 0.4,
+            duration: 3 + index * 0.18,
             ease: "easeInOut",
             repeat: Infinity,
           }}
           style={{ opacity }}
+          className="rounded-full"
         >
           <Bone
             weight="duotone"
-            className="text-foreground/90"
-            style={{
-              width: size,
-              height: size,
-            }}
+            className={
+              isLead
+                ? "text-primary drop-shadow-[0_6px_16px_rgba(0,0,0,0.10)]"
+                : "text-[color:color-mix(in_oklab,hsl(var(--primary))_88%,hsl(var(--accent))_12%)] drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+            }
+            style={{ width: size, height: size }}
           />
         </motion.div>
       </div>
@@ -86,8 +90,8 @@ export function Cursor() {
     setMounted(true)
 
     const handleMove = (event: PointerEvent) => {
-      pointerX.set(event.clientX + 30)
-      pointerY.set(event.clientY + 26)
+      pointerX.set(event.clientX + 18)
+      pointerY.set(event.clientY + 14)
       setVisible(true)
     }
 

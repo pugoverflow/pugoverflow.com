@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { motion } from "motion/react"
 
 import { HoverCard } from "@/components/hover-card"
 
@@ -18,18 +19,26 @@ export function FeatureCard({
   const TitleTag = titleAs
 
   return (
-    <HoverCard>
+    <HoverCard className="group">
       {icon ? (
-        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border/70 bg-muted/50 shadow-sm">
+        <motion.div
+          className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-border/70 bg-muted/40 text-primary shadow-sm transition-colors group-hover:bg-muted/60"
+          whileHover={{ scale: 1.025, y: -0.5 }}
+          transition={{
+            type: "spring",
+            stiffness: 440,
+            damping: 26,
+          }}
+        >
           {icon}
-        </div>
+        </motion.div>
       ) : null}
 
-      <TitleTag className="text-base font-semibold tracking-tight md:text-lg">
+      <TitleTag className="text-base font-semibold leading-tight tracking-tight md:text-lg">
         {title}
       </TitleTag>
 
-      <p className="mt-2 text-sm leading-6 text-muted-foreground">
+      <p className="mt-2 text-sm leading-7 text-muted-foreground md:text-[15px]">
         {description}
       </p>
     </HoverCard>

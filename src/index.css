@@ -7,107 +7,109 @@
 
 :root {
   /* Brand */
-  --brand-orange: oklch(0.74 0.18 55);
-  --brand-orange-deep: oklch(0.66 0.19 48);
-  --brand-charcoal: oklch(0.25 0.015 40);
-  --brand-cream: oklch(0.985 0.005 85);
-  --brand-warm: oklch(0.956 0.008 82);
-  --brand-blue: oklch(0.73 0.12 231);
+  --brand-orange: oklch(0.75 0.18 57);
+  --brand-orange-deep: oklch(0.67 0.18 52);
+  --brand-blue: oklch(0.72 0.08 240);
+
+  /* Cool logo-inspired neutrals */
+  --brand-ink: oklch(0.26 0.008 255);
+  --brand-slate: oklch(0.46 0.008 255);
+  --brand-line: oklch(0.9 0.006 255);
+  --brand-fog: oklch(0.965 0.003 255);
+  --brand-paper: oklch(0.985 0.002 255);
 
   /* App tokens */
-  --background: var(--brand-cream);
-  --foreground: var(--brand-charcoal);
+  --background: var(--brand-paper);
+  --foreground: var(--brand-ink);
 
-  --card: oklch(1 0 0 / 88%);
-  --card-foreground: var(--brand-charcoal);
+  --card: oklch(1 0 0 / 92%);
+  --card-foreground: var(--brand-ink);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: var(--brand-charcoal);
+  --popover-foreground: var(--brand-ink);
 
   --primary: var(--brand-orange);
   --primary-foreground: oklch(0.99 0 0);
 
-  --secondary: oklch(0.955 0.008 82);
-  --secondary-foreground: oklch(0.31 0.01 40);
+  --secondary: var(--brand-fog);
+  --secondary-foreground: var(--brand-ink);
 
-  --muted: oklch(0.965 0.006 82);
-  --muted-foreground: oklch(0.54 0.015 45);
+  --muted: oklch(0.965 0.003 255);
+  --muted-foreground: var(--brand-slate);
 
-  --accent: oklch(0.96 0.018 80);
-  --accent-foreground: oklch(0.28 0.015 40);
+  /* subtle micro-accent */
+  --accent: oklch(0.955 0.004 240);
+  --accent-foreground: var(--brand-ink);
 
   --destructive: oklch(0.62 0.23 28);
 
-  --border: oklch(0.9 0.007 80);
-  --input: oklch(0.9 0.007 80);
+  --border: var(--brand-line);
+  --input: var(--brand-line);
   --ring: var(--brand-orange);
 
   --chart-1: var(--brand-orange);
   --chart-2: var(--brand-blue);
-  --chart-3: oklch(0.56 0.03 45);
-  --chart-4: oklch(0.84 0.08 95);
-  --chart-5: oklch(0.68 0.08 220);
+  --chart-3: oklch(0.58 0.02 255);
+  --chart-4: oklch(0.84 0.05 70);
+  --chart-5: oklch(0.66 0.08 240);
 
   --radius: 1rem;
 
-  --sidebar: oklch(0.975 0.004 85);
-  --sidebar-foreground: var(--brand-charcoal);
+  --sidebar: oklch(0.976 0.003 255);
+  --sidebar-foreground: var(--brand-ink);
   --sidebar-primary: var(--brand-orange);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.96 0.018 80);
-  --sidebar-accent-foreground: oklch(0.28 0.015 40);
-  --sidebar-border: oklch(0.9 0.007 80);
+  --sidebar-accent: oklch(0.955 0.004 240);
+  --sidebar-accent-foreground: var(--brand-ink);
+  --sidebar-border: var(--brand-line);
   --sidebar-ring: var(--brand-orange);
 }
 
 .dark {
-  --brand-orange: oklch(0.78 0.18 55);
-  --brand-orange-deep: oklch(0.72 0.19 48);
-  --brand-charcoal: oklch(0.19 0.01 40);
-  --brand-cream: oklch(0.95 0.005 85);
-  --brand-warm: oklch(0.28 0.01 42);
-  --brand-blue: oklch(0.75 0.11 230);
+  --brand-orange: oklch(0.79 0.17 57);
+  --brand-orange-deep: oklch(0.72 0.17 52);
+  --brand-blue: oklch(0.74 0.08 240);
 
-  --background: oklch(0.18 0.01 40);
-  --foreground: oklch(0.95 0.005 85);
+  --background: oklch(0.19 0.006 255);
+  --foreground: oklch(0.95 0.002 255);
 
-  --card: oklch(0.22 0.012 40 / 88%);
-  --card-foreground: oklch(0.95 0.005 85);
+  --card: oklch(0.23 0.006 255 / 88%);
+  --card-foreground: oklch(0.95 0.002 255);
 
-  --popover: oklch(0.22 0.012 40);
-  --popover-foreground: oklch(0.95 0.005 85);
+  --popover: oklch(0.23 0.006 255);
+  --popover-foreground: oklch(0.95 0.002 255);
 
   --primary: var(--brand-orange);
-  --primary-foreground: oklch(0.18 0.01 40);
+  --primary-foreground: oklch(0.2 0.006 255);
 
-  --secondary: oklch(0.27 0.012 40);
-  --secondary-foreground: oklch(0.94 0.005 85);
+  --secondary: oklch(0.25 0.006 255);
+  --secondary-foreground: oklch(0.94 0.002 255);
 
-  --muted: oklch(0.26 0.012 40);
-  --muted-foreground: oklch(0.76 0.014 60);
+  --muted: oklch(0.24 0.006 255);
+  --muted-foreground: oklch(0.74 0.008 255);
 
-  --accent: oklch(0.3 0.015 50);
-  --accent-foreground: oklch(0.95 0.005 85);
+  --accent: oklch(0.28 0.01 240);
+  --accent-foreground: oklch(0.95 0.002 255);
 
   --destructive: oklch(0.68 0.2 28);
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
   --ring: var(--brand-orange);
 
   --chart-1: var(--brand-orange);
   --chart-2: var(--brand-blue);
-  --chart-3: oklch(0.9 0.004 85);
-  --chart-4: oklch(0.82 0.09 95);
-  --chart-5: oklch(0.68 0.08 220);
+  --chart-3: oklch(0.88 0.004 255);
+  --chart-4: oklch(0.8 0.06 70);
+  --chart-5: oklch(0.68 0.08 240);
 
-  --sidebar: oklch(0.2 0.012 40);
-  --sidebar-foreground: oklch(0.95 0.005 85);
+  --sidebar: oklch(0.21 0.006 255);
+  --sidebar-foreground: oklch(0.95 0.002 255);
   --sidebar-primary: var(--brand-orange);
-  --sidebar-primary-foreground: oklch(0.18 0.01 40);
-  --sidebar-accent: oklch(0.3 0.015 50);
-  --sidebar-accent-foreground: oklch(0.95 0.005 85);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-primary-foreground: oklch(0.2 0.006 255);
+  --sidebar-accent: oklch(0.28 0.01 240);
+  --sidebar-accent-foreground: oklch(0.95 0.002 255);
+  --sidebar-border: oklch(1 0 0 / 8%);
   --sidebar-ring: var(--brand-orange);
 }
 
@@ -169,16 +171,12 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-image:
-      radial-gradient(
-        circle at top,
-        color-mix(in oklab, var(--color-primary) 8%, transparent),
-        transparent 34%
-      ),
-      radial-gradient(
-        circle at 85% 12%,
-        color-mix(in oklab, var(--brand-blue) 10%, transparent),
-        transparent 18%
-      ),
+      radial-gradient(circle at 20% -10%,
+        color-mix(in oklab, var(--color-primary) 10%, transparent),
+        transparent 38%),
+      radial-gradient(circle at 80% 0%,
+        color-mix(in oklab, var(--brand-blue) 8%, transparent),
+        transparent 22%),
       linear-gradient(to bottom, var(--color-background), var(--color-background));
     background-attachment: fixed;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -192,7 +190,7 @@
   h6 {
     @apply text-foreground;
     font-weight: 700;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.04em;
   }
 
   ::selection {
@@ -202,5 +200,13 @@
 
   #root {
     min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .shadow-elevated {
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.02),
+      0 8px 24px rgba(0, 0, 0, 0.04);
   }
 }

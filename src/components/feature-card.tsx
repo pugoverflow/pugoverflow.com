@@ -23,11 +23,11 @@ export function FeatureCard({
       {icon ? (
         <motion.div
           className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-border/70 bg-muted/40 text-primary shadow-sm transition-colors group-hover:bg-muted/60"
-          whileHover={{ scale: 1.025, y: -0.5 }}
+          whileHover={{ scale: 1.03, y: -1 }}
           transition={{
             type: "spring",
-            stiffness: 440,
-            damping: 26,
+            stiffness: 420,
+            damping: 24,
           }}
         >
           {icon}

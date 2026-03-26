@@ -6,9 +6,24 @@ import { Container } from "@/components/layout/container"
 import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
 import { pageTransition } from "@/lib/motion"
+
 import { About } from "@/pages/about"
 import { Home } from "@/pages/home"
 import { Uses } from "@/pages/uses"
+
+function AnimatedPage({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      variants={pageTransition}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="will-change-[opacity,transform]"
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -19,43 +34,27 @@ function AnimatedRoutes() {
         <Route
           path="/"
           element={
-            <motion.div
-              variants={pageTransition}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="will-change-[opacity,transform]"
-            >
+            <AnimatedPage>
               <Home />
-            </motion.div>
+            </AnimatedPage>
           }
         />
+
         <Route
           path="/about"
           element={
-            <motion.div
-              variants={pageTransition}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="will-change-[opacity,transform]"
-            >
+            <AnimatedPage>
               <About />
-            </motion.div>
+            </AnimatedPage>
           }
         />
+
         <Route
           path="/uses"
           element={
-            <motion.div
-              variants={pageTransition}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="will-change-[opacity,transform]"
-            >
+            <AnimatedPage>
               <Uses />
-            </motion.div>
+            </AnimatedPage>
           }
         />
       </Routes>

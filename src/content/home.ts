@@ -1,41 +1,60 @@
 export const homeContent = {
-    badges: [
-      { label: "Senior Front-End Engineer" },
-      { label: "Woman in Tech" },
-      { label: "Pug Mum", variant: "secondary" as const },
-    ],
-  
-    intro: `Senior front-end engineer focused on design systems, accessibility, and scalable UI architecture. I build polished interfaces and stronger front-end foundations that help teams ship faster, stay consistent, and reduce the friction that builds up as products grow. I also use AI to support large-scale front-end work, from codemods to drift reports and UI audits.`,
-  
-    minnie: {
-      title: "Meet Minnie",
-      description: `Minnie is my pug, office companion, and morale booster. She’s part of the personality behind Pug Overflow — a personal brand that still reflects how I work: thoughtful, reliable, and just a little less corporate.`,
+  badges: [
+    { label: "Woman in Tech", variant: "secondary" as const },
+    { label: "Neurodivergent", variant: "secondary" as const },
+    { label: "Pug Mum" },
+  ],
+
+  locationLabel: "Location",
+
+  location: [
+    { label: "Manchester, UK" },
+    { label: "Remote, EMEA", variant: "secondary" as const },
+  ],
+
+  title: "Amanda Cashin",
+
+  subtitle:
+    "Senior front-end engineer specialising in design systems, accessibility, and scalable UI architecture.",
+
+  intro:
+    "I build polished interfaces and strong front-end foundations that help teams move faster, stay consistent, and scale with confidence.",
+
+  minnie: {
+    title: "Meet Minnie",
+    description:
+      "Minnie is my pug, office companion, and morale booster — part of the personality behind Pug Overflow.",
+  },
+
+  skillsLabel: "Core skills",
+
+  skills: [
+    { label: "Design Systems" },
+    { label: "UI Architecture" },
+    { label: "Accessibility" },
+    { label: "Component Architecture" },
+    { label: "React", variant: "secondary" as const },
+    { label: "TypeScript", variant: "secondary" as const },
+    { label: "Storybook", variant: "secondary" as const },
+  ],
+
+  linksLabel: "Let's connect",
+
+  links: [
+    {
+      label: "GitHub",
+      href: "https://github.com/pugoverflow",
+      variant: "default" as const,
     },
-  
-    skills: [
-      "React",
-      "TypeScript",
-      "Design Systems",
-      "Accessibility",
-      "Tailwind",
-      "Storybook",
-    ],
-  
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/pugoverflow",
-        variant: "default" as const,
-      },
-      {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com/in/amanda-cashin/",
-        variant: "default" as const,
-      },
-      {
-        label: "Instagram",
-        href: "https://instagram.com/pugoverflow",
-        variant: "outline" as const,
-      },
-    ],
-  }
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/amanda-cashin/",
+      variant: "default" as const,
+    },
+    {
+      label: "Instagram",
+      href: "https://instagram.com/pugoverflow",
+      variant: "outline" as const,
+    },
+  ],
+}

@@ -38,7 +38,7 @@ export function SectionHeader({
 
       <motion.h1
         variants={sectionTitle}
-        className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+        className="max-w-4xl text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
       >
         {title}
       </motion.h1>

@@ -15,10 +15,10 @@ export function ThemeToggle() {
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={isDark ? "moon" : "sun"}
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.92 }}
-          transition={{ duration: 0.15 }}
+          initial={{ opacity: 0, scale: 0.92, y: 1 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.92, y: -1 }}
+          transition={{ duration: 0.16 }}
           className="flex items-center justify-center"
         >
           <Icon className="h-4 w-4 text-muted-foreground" weight="duotone" />

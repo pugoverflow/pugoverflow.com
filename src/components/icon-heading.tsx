@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode, ElementType } from "react"
 import { motion } from "motion/react"
 
 import { scrollRevealSubtle } from "@/lib/motion"
@@ -7,12 +7,14 @@ type IconHeadingProps = {
   icon: ReactNode
   title: string
   description?: string
+  as?: ElementType
 }
 
 export function IconHeading({
   icon,
   title,
   description,
+  as: TitleTag = "h2",
 }: IconHeadingProps) {
   return (
     <motion.div
@@ -27,9 +29,9 @@ export function IconHeading({
           {icon}
         </div>
 
-        <h2 className="text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+        <TitleTag className="text-xl font-semibold leading-tight tracking-tight md:text-2xl">
           {title}
-        </h2>
+        </TitleTag>
       </div>
 
       {description ? (

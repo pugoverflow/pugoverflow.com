@@ -3,31 +3,30 @@ import {
   AnimatePresence,
   motion,
   useMotionValue,
+  useReducedMotion,
   useSpring,
 } from "motion/react"
 import { useEffect, useState } from "react"
 
-const trail = [
-  { stiffness: 140, damping: 20, mass: 1.1, size: 30, opacity: 0.9 },
-  { stiffness: 118, damping: 18, mass: 1.28, size: 27, opacity: 0.72 },
-  { stiffness: 96, damping: 17, mass: 1.5, size: 24, opacity: 0.56 },
-  { stiffness: 78, damping: 16, mass: 1.75, size: 21, opacity: 0.42 },
-  { stiffness: 62, damping: 15, mass: 2, size: 18, opacity: 0.3 },
-]
+const trailConfig = [
+  { stiffness: 150, damping: 22, mass: 1.08, size: 30, opacity: 0.92 },
+  { stiffness: 126, damping: 20, mass: 1.24, size: 27, opacity: 0.74 },
+  { stiffness: 104, damping: 18, mass: 1.42, size: 24, opacity: 0.58 },
+  { stiffness: 84, damping: 17, mass: 1.68, size: 21, opacity: 0.44 },
+  { stiffness: 68, damping: 16, mass: 1.92, size: 18, opacity: 0.3 },
+] as const
 
-function TrailBone({
-  x,
-  y,
-  size,
-  opacity,
-  index,
-}: {
-  x: ReturnType<typeof useSpring>
-  y: ReturnType<typeof useSpring>
+type SpringValue = ReturnType<typeof useSpring>
+
+type TrailBoneProps = {
+  x: SpringValue
+  y: SpringValue
   size: number
   opacity: number
   index: number
-}) {
+}
+
+function TrailBone({ x, y, size, opacity, index }: TrailBoneProps) {
   const isLead = index === 0
 
   return (
@@ -35,6 +34,10 @@ function TrailBone({
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 hidden xl:block"
       style={{ x, y, zIndex: 100 - index }}
+      initial={{ opacity: 0, scale: 0.94 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.94 }}
+      transition={{ duration: 0.18 }}
     >
       <div className="relative -translate-x-1/2 -translate-y-1/2">
         <motion.div
@@ -55,7 +58,7 @@ function TrailBone({
             weight="duotone"
             className={
               isLead
-                ? "text-primary drop-shadow-[0_6px_16px_rgba(0,0,0,0.10)]"
+                ? "text-primary drop-shadow-[0_6px_18px_rgba(0,0,0,0.10)]"
                 : "text-[color:color-mix(in_oklab,hsl(var(--primary))_88%,hsl(var(--accent))_12%)] drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
             }
             style={{ width: size, height: size }}
@@ -67,24 +70,75 @@ function TrailBone({
 }
 
 export function Cursor() {
+  const shouldReduceMotion = useReducedMotion()
   const [mounted, setMounted] = useState(false)
   const [visible, setVisible] = useState(false)
 
-  const pointerX = useMotionValue(-100)
-  const pointerY = useMotionValue(-100)
+  const pointerX = useMotionValue(-120)
+  const pointerY = useMotionValue(-120)
 
-  const springs = trail.map((item) => ({
-    x: useSpring(pointerX, {
-      stiffness: item.stiffness,
-      damping: item.damping,
-      mass: item.mass,
-    }),
-    y: useSpring(pointerY, {
-      stiffness: item.stiffness,
-      damping: item.damping,
-      mass: item.mass,
-    }),
-  }))
+  const spring0X = useSpring(pointerX, {
+    stiffness: trailConfig[0].stiffness,
+    damping: trailConfig[0].damping,
+    mass: trailConfig[0].mass,
+  })
+  const spring0Y = useSpring(pointerY, {
+    stiffness: trailConfig[0].stiffness,
+    damping: trailConfig[0].damping,
+    mass: trailConfig[0].mass,
+  })
+
+  const spring1X = useSpring(pointerX, {
+    stiffness: trailConfig[1].stiffness,
+    damping: trailConfig[1].damping,
+    mass: trailConfig[1].mass,
+  })
+  const spring1Y = useSpring(pointerY, {
+    stiffness: trailConfig[1].stiffness,
+    damping: trailConfig[1].damping,
+    mass: trailConfig[1].mass,
+  })
+
+  const spring2X = useSpring(pointerX, {
+    stiffness: trailConfig[2].stiffness,
+    damping: trailConfig[2].damping,
+    mass: trailConfig[2].mass,
+  })
+  const spring2Y = useSpring(pointerY, {
+    stiffness: trailConfig[2].stiffness,
+    damping: trailConfig[2].damping,
+    mass: trailConfig[2].mass,
+  })
+
+  const spring3X = useSpring(pointerX, {
+    stiffness: trailConfig[3].stiffness,
+    damping: trailConfig[3].damping,
+    mass: trailConfig[3].mass,
+  })
+  const spring3Y = useSpring(pointerY, {
+    stiffness: trailConfig[3].stiffness,
+    damping: trailConfig[3].damping,
+    mass: trailConfig[3].mass,
+  })
+
+  const spring4X = useSpring(pointerX, {
+    stiffness: trailConfig[4].stiffness,
+    damping: trailConfig[4].damping,
+    mass: trailConfig[4].mass,
+  })
+  const spring4Y = useSpring(pointerY, {
+    stiffness: trailConfig[4].stiffness,
+    damping: trailConfig[4].damping,
+    mass: trailConfig[4].mass,
+  })
+
+  const springs = [
+    { x: spring0X, y: spring0Y },
+    { x: spring1X, y: spring1Y },
+    { x: spring2X, y: spring2Y },
+    { x: spring3X, y: spring3Y },
+    { x: spring4X, y: spring4Y },
+  ]
 
   useEffect(() => {
     setMounted(true)
@@ -109,16 +163,18 @@ export function Cursor() {
     }
   }, [pointerX, pointerY])
 
-  if (!mounted) return null
+  if (!mounted || shouldReduceMotion) {
+    return null
+  }
 
   return (
     <AnimatePresence>
       {visible &&
-        trail
+        trailConfig
           .slice()
           .reverse()
           .map((item, reversedIndex) => {
-            const springIndex = trail.length - 1 - reversedIndex
+            const springIndex = trailConfig.length - 1 - reversedIndex
             const spring = springs[springIndex]
 
             return (

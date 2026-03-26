@@ -1,43 +1,43 @@
 export const aboutContent = {
-    header: {
-      eyebrow: "About",
-      title: "Senior front-end engineer with a systems mindset",
+  header: {
+    eyebrow: "About",
+    title: "Front-end engineer specialising in design systems",
+    description:
+      "I’m a front-end engineer based in Manchester, UK, focused on design systems, accessibility, and UI architecture that scales with teams. Pug Overflow is my personal brand, but the work is still very much me: clear systems, strong foundations, and thoughtful implementation.",
+  },
+
+  features: [
+    {
+      title: "Engineering foundations",
       description:
-        "I specialise in design systems, accessibility, and front-end architecture that helps teams move faster without losing quality. Pug Overflow is my brand, but the work is still very much me: clear systems, strong UI foundations, and thoughtful implementation.",
+        "I build reusable components, clear boundaries, and front-end architecture that stays maintainable as products and teams grow. Strong foundations make everything else easier.",
     },
-  
-    features: [
-      {
-        title: "Engineering foundations",
-        description:
-          "Reusable components, clear boundaries, and front-end architecture that stays maintainable as products and teams grow. I focus on the structural work that makes delivery smoother later.",
-      },
-      {
-        title: "Design systems",
-        description:
-          "I turn consistency into something practical: systems, documentation, conventions, and tooling that help teams build product UI with more confidence and less duplication.",
-      },
-      {
-        title: "User experience quality",
-        description:
-          "Accessibility, semantics, polish, and thoughtful implementation all matter. Strong UI should feel dependable, clear, and easy to use — not just visually consistent.",
-      },
-    ],
-  
-    howIWork: [
-      "I enjoy solving the front-end problems that quietly create drag for teams over time.",
-      "Inconsistent UI, duplicated logic, unclear patterns, inaccessible interactions, and code that becomes harder to scale all slow teams down. I like reducing that drag by making systems clearer, more reliable, and easier to work with.",
-      "A lot of my work is about strengthening foundations. Better systems mean fewer regressions, more predictable implementation, and more confidence when shipping product work. I’m especially interested in the kind of front-end work that improves both user experience and developer experience.",
-      "I also use AI to support large-scale front-end maintenance and design system work. That includes creating codemods, generating drift reports, and automating UI audits to spot inconsistency early, reduce manual effort, and keep systems aligned with how products actually evolve.",
-      "I’m also neurodivergent, which shapes how I approach systems and problem solving. I tend to notice inconsistency, edge cases, and unnecessary complexity quickly, which naturally pulls me toward accessibility, maintainability, and cleaner UI architecture.",
-    ],
-  
-    focusAreas: [
-      "Scalable component architecture",
-      "Accessible patterns and interaction design",
-      "Design system tooling and adoption",
-      "Front-end developer experience",
-      "Codemods, audits, and drift detection",
-      "Reducing UI tech debt before it slows teams down",
-    ],
-  }
+    {
+      title: "Design systems",
+      description:
+        "I turn consistency into something practical — systems, documentation, and tooling that help teams build UI with confidence and avoid duplication.",
+    },
+    {
+      title: "User experience quality",
+      description:
+        "Accessibility, semantics, and polish matter. Good UI should feel dependable, clear, and easy to use — not just visually consistent.",
+    },
+  ],
+
+  howIWork: [
+    "I focus on the front-end problems that quietly slow teams down over time.",
+    "Inconsistent UI, duplicated logic, unclear patterns, and inaccessible interactions all create friction. I work to reduce that by making systems clearer, more predictable, and easier to work with.",
+    "Much of my work is about strengthening foundations. Better systems mean fewer regressions, faster delivery, and more confidence when shipping product changes.",
+    "I also use AI to support large-scale front-end work — including codemods, UI audits, and identifying design system drift — helping reduce manual effort and keep systems aligned.",
+    "I’m neurodivergent, which shapes how I approach systems and problem solving. I tend to notice inconsistencies, edge cases, and unnecessary complexity quickly, which draws me toward accessibility, maintainability, and cleaner UI architecture.",
+  ],
+
+  focusAreas: [
+    "Scalable component architecture",
+    "Accessible patterns and interaction design",
+    "Design system tooling and adoption",
+    "Front-end developer experience",
+    "Codemods, audits, and drift detection",
+    "Reducing UI tech debt before it slows teams down",
+  ],
+}

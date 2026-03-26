@@ -25,11 +25,7 @@ const ThemeProviderContext = React.createContext<
 >(undefined)
 
 function isTheme(value: string | null): value is Theme {
-  if (value === null) {
-    return false
-  }
-
-  return THEME_VALUES.includes(value as Theme)
+  return value !== null && THEME_VALUES.includes(value as Theme)
 }
 
 function getSystemTheme(): ResolvedTheme {
@@ -63,19 +59,12 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(() => {
     const storedTheme = localStorage.getItem(storageKey)
-    if (isTheme(storedTheme)) {
-      return storedTheme
-    }
-
-    return defaultTheme
+    return isTheme(storedTheme) ? storedTheme : defaultTheme
   })
 
   const [resolvedTheme, setResolvedTheme] = React.useState<ResolvedTheme>(() => {
-    const initialTheme =
-      isTheme(localStorage.getItem(storageKey))
-        ? (localStorage.getItem(storageKey) as Theme)
-        : defaultTheme
-
+    const storedTheme = localStorage.getItem(storageKey)
+    const initialTheme = isTheme(storedTheme) ? storedTheme : defaultTheme
     return initialTheme === "system" ? getSystemTheme() : initialTheme
   })
 
@@ -104,7 +93,7 @@ export function ThemeProvider({
       setThemeState(nextTheme)
       applyTheme(nextTheme)
     },
-    [storageKey, applyTheme]
+    [applyTheme, storageKey]
   )
 
   React.useEffect(() => {
@@ -115,13 +104,9 @@ export function ThemeProvider({
     }
 
     const mediaQuery = window.matchMedia(COLOR_SCHEME_QUERY)
-
-    const handleChange = () => {
-      applyTheme("system")
-    }
+    const handleChange = () => applyTheme("system")
 
     mediaQuery.addEventListener("change", handleChange)
-
     return () => {
       mediaQuery.removeEventListener("change", handleChange)
     }
@@ -129,11 +114,7 @@ export function ThemeProvider({
 
   React.useEffect(() => {
     const handleStorageChange = (event: StorageEvent) => {
-      if (event.storageArea !== localStorage) {
-        return
-      }
-
-      if (event.key !== storageKey) {
+      if (event.storageArea !== localStorage || event.key !== storageKey) {
         return
       }
 
@@ -148,11 +129,10 @@ export function ThemeProvider({
     }
 
     window.addEventListener("storage", handleStorageChange)
-
     return () => {
       window.removeEventListener("storage", handleStorageChange)
     }
-  }, [defaultTheme, storageKey, applyTheme])
+  }, [applyTheme, defaultTheme, storageKey])
 
   const value = React.useMemo(
     () => ({
